@@ -254,12 +254,12 @@ export default function ShopPage() {
                     />
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center justify-between mb-1">
+                    <div className="flex items-start sm:items-center justify-between mb-1 gap-2">
                       <h4 className={cn(
-                        "font-pixel text-lg",
+                        "font-pixel text-base sm:text-lg truncate",
                         selectedRank.id === rank.id ? "text-white" : "text-white/80"
                       )}>{rank.name}</h4>
-                      <span className="font-black text-lg text-white">₹{rank.price}</span>
+                      <span className="font-black text-lg text-white shrink-0">₹{rank.price}</span>
                     </div>
                     <p className="text-sm text-white/50 line-clamp-1">{rank.perks[0]} and more...</p>
                   </div>
@@ -291,60 +291,62 @@ export default function ShopPage() {
                     )}
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center justify-between mb-1">
+                    <div className="flex items-start sm:items-center justify-between mb-1 gap-2">
                       <h4 className={cn(
-                        "font-pixel text-lg",
+                        "font-pixel text-base sm:text-lg truncate",
                         selectedCrate.id === crate.id ? "text-white" : "text-white/80"
                       )}>{crate.name}</h4>
-                      <span className="font-black text-lg text-white">₹{crate.price}</span>
+                      <span className="font-black text-lg text-white shrink-0">₹{crate.price}</span>
                     </div>
                     <p className="text-sm text-white/50 line-clamp-1">{crate.description}</p>
                   </div>
                 </button>
               ))}
             </div>
-
-            {/* Comparison Table only shows for Ranks */}
-            <AnimatePresence>
-              {activeTab === "ranks" && (
-                <motion.div 
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="mt-16 overflow-hidden"
-                >
-                  <div className="text-center mb-8 px-4">
-                    <h2 className="text-xl sm:text-2xl font-pixel text-white mb-2 break-words">Rank Comparison</h2>
-                    <p className="text-xs sm:text-sm text-muted-foreground">Compare all features side-by-side.</p>
-                  </div>
-                  <ComparisonTable ranks={ranks} />
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            {/* Crate Info shows for Crates */}
-            <AnimatePresence>
-              {activeTab === "crates" && (
-                <motion.div 
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="mt-16 overflow-hidden"
-                >
-                  <div className="bento-card p-6 flex flex-col items-center text-center">
-                    <PackageOpen className="w-12 h-12 text-pink-400 mb-4" />
-                    <h3 className="text-xl font-pixel text-white mb-2">How Crate Keys Work</h3>
-                    <p className="text-sm text-muted-foreground max-w-md mx-auto">
-                      Crate keys can be used in-game at spawn to open special loot crates. 
-                      You are guaranteed to win at least one item from the crate's loot pool. 
-                      Purchases directly support server hosting and development!
-                    </p>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-            
           </div>
+        </div>
+
+        {/* Bottom Section (Comparison Table / Crate Info) */}
+        <div className="max-w-6xl mx-auto">
+          {/* Comparison Table only shows for Ranks */}
+          <AnimatePresence>
+            {activeTab === "ranks" && (
+              <motion.div 
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="mt-16 overflow-hidden"
+              >
+                <div className="text-center mb-8 px-4">
+                  <h2 className="text-xl sm:text-2xl font-pixel text-white mb-2 break-words">Rank Comparison</h2>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Compare all features side-by-side.</p>
+                </div>
+                <ComparisonTable ranks={ranks} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Crate Info shows for Crates */}
+          <AnimatePresence>
+            {activeTab === "crates" && (
+              <motion.div 
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="mt-16 overflow-hidden"
+              >
+                <div className="bento-card p-6 flex flex-col items-center text-center">
+                  <PackageOpen className="w-12 h-12 text-pink-400 mb-4" />
+                  <h3 className="text-xl font-pixel text-white mb-2">How Crate Keys Work</h3>
+                  <p className="text-sm text-muted-foreground max-w-md mx-auto">
+                    Crate keys can be used in-game at spawn to open special loot crates. 
+                    You are guaranteed to win at least one item from the crate's loot pool. 
+                    Purchases directly support server hosting and development!
+                  </p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
 

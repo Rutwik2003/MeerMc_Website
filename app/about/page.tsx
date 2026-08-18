@@ -135,12 +135,14 @@ export default function AboutPage() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="h-full"
               >
-                <GlowCard className="h-full p-6 text-center hover:border-primary/30 transition-all flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
-                    <value.icon className="w-6 h-6 text-primary" />
+                <GlowCard className="h-full p-0 text-center hover:border-primary/30 transition-all">
+                  <div className="flex flex-col items-center">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4 mx-auto">
+                      <value.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-semibold text-foreground mb-2">{value.title}</h3>
+                    <p className="text-muted-foreground text-sm">{value.description}</p>
                   </div>
-                  <h3 className="font-semibold text-foreground mb-2">{value.title}</h3>
-                  <p className="text-muted-foreground text-sm">{value.description}</p>
                 </GlowCard>
               </motion.div>
             ))}

@@ -89,7 +89,7 @@ export default function GalleryPage() {
           >
             <div className="flex items-center gap-2 mb-6">
               <Sparkles className="w-5 h-5 text-yellow-400" />
-              <h3 className="text-xl font-bold font-pixel text-white">Featured Highlights</h3>
+              <h3 className="text-xl font-bold font-heading text-white tracking-wide">Featured Highlights</h3>
             </div>
             
             <div className="relative w-full h-[400px] md:h-[500px] bento-card rounded-[2.5rem] p-2 overflow-hidden border border-primary/20 shadow-[0_0_50px_rgba(168,85,247,0.15)] group">
@@ -116,7 +116,7 @@ export default function GalleryPage() {
                     <span className="inline-block px-2 sm:px-3 py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-[10px] sm:text-xs font-bold mb-2 sm:mb-3">
                       {showcaseItems[featuredIndex].category}
                     </span>
-                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow-lg font-pixel break-words">
+                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold text-white mb-2 drop-shadow-lg break-words">
                       {showcaseItems[featuredIndex].title}
                     </h2>
                     <p className="text-white/80 text-sm sm:text-lg max-w-2xl drop-shadow-md">

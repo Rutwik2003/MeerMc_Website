@@ -119,7 +119,7 @@ export default function Navigation() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1">
+            <div className="hidden xl:flex items-center gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -145,7 +145,7 @@ export default function Navigation() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="hidden lg:flex items-center gap-4">
+            <div className="hidden xl:flex items-center gap-4">
               <button
                 onClick={openSidebar}
                 className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors text-sm font-medium"
@@ -167,7 +167,7 @@ export default function Navigation() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-primary/10 transition-colors z-50 relative"
+              className="xl:hidden p-2 rounded-lg hover:bg-primary/10 transition-colors z-50 relative"
               aria-label="Toggle menu"
             >
               {isOpen ? (
@@ -187,7 +187,7 @@ export default function Navigation() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2 }}
-              className="lg:hidden absolute top-full left-0 right-0 bg-[#0f111a]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl"
+              className="xl:hidden absolute top-full left-0 right-0 bg-[#0f111a]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl"
             >
               <div className="container mx-auto px-4 py-4">
                 <div className="flex flex-col gap-2">

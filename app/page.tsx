@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <div className="relative">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-20">
+      <section className="relative min-h-0 md:min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-16 md:pt-24 md:pb-20">
         {/* Parallax Background */}
         <div className="absolute inset-0 z-0 scale-105 transform origin-center">
           <Image 

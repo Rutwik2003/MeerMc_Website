@@ -106,31 +106,47 @@ export default function CommandsPage() {
               <GlowCard hover={false} className="p-0 overflow-hidden">
                 <button
                   onClick={() => setExpandedPlugin(expandedPlugin === plugin.id ? null : plugin.id)}
-                  className="w-full flex items-center justify-between p-4 sm:p-6 text-left gap-2 sm:gap-4"
+                  className="w-full flex flex-col sm:flex-row items-center justify-between p-5 sm:p-6 text-center sm:text-left gap-3 sm:gap-4 relative"
                 >
-                  <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 text-primary border border-primary/20">
+                  <div className="absolute top-4 right-4 sm:hidden">
+                    <ChevronDown
+                      className={cn(
+                        "w-5 h-5 text-muted-foreground transition-transform duration-300",
+                        expandedPlugin === plugin.id && "rotate-180"
+                      )}
+                    />
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row items-center sm:items-center gap-3 sm:gap-4 min-w-0 flex-1">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 text-primary border border-primary/20">
                       {(() => {
                         const IconComponent = categories.find(
                           (c) => c.id === plugin.category
                         )!.icon;
-                        return <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />;
+                        return <IconComponent className="w-6 h-6" />;
                       })()}
                     </div>
-                    <div className="min-w-0">
-                      <h3 className="font-semibold text-foreground text-sm sm:text-base break-words">{plugin.name}</h3>
-                      <p className="text-xs sm:text-sm text-muted-foreground line-clamp-1 sm:line-clamp-2">
+                    <div className="min-w-0 flex flex-col items-center sm:items-start flex-1 mt-1 sm:mt-0">
+                      <h3 className="font-semibold text-foreground text-base whitespace-normal leading-tight break-words text-center sm:text-left w-full sm:w-auto">
+                        {plugin.name}
+                      </h3>
+                      <span className="sm:hidden text-[10px] text-primary bg-primary/10 px-2 py-0.5 rounded-md whitespace-nowrap border border-primary/20 mt-1.5 mb-1.5 inline-block">
+                        {plugin.commands.length} cmds
+                      </span>
+                      <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2 mt-0.5 text-center sm:text-left w-full sm:w-auto">
                         {plugin.description}
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
-                    <span className="text-[10px] sm:text-xs text-primary bg-primary/10 px-1.5 sm:px-2 py-1 rounded-md whitespace-nowrap border border-primary/20">
+
+                  {/* Desktop Right Side */}
+                  <div className="hidden sm:flex items-center gap-3 shrink-0 ml-1">
+                    <span className="text-xs text-primary bg-primary/10 px-2 py-1 rounded-md whitespace-nowrap border border-primary/20">
                       {plugin.commands.length} cmds
                     </span>
                     <ChevronDown
                       className={cn(
-                        "w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground transition-transform duration-300",
+                        "w-5 h-5 text-muted-foreground transition-transform duration-300",
                         expandedPlugin === plugin.id && "rotate-180"
                       )}
                     />
@@ -150,27 +166,27 @@ export default function CommandsPage() {
                         {plugin.commands.map((cmd) => (
                           <div
                             key={cmd.command}
-                            className="flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors group gap-2"
+                            className="flex flex-col justify-center p-3 sm:p-4 rounded-lg bg-white/[0.02] border border-white/5 hover:border-primary/20 transition-colors group gap-2"
                           >
-                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 flex-1 min-w-0">
-                              <code className="font-mono text-xs sm:text-sm text-primary bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-md whitespace-nowrap w-fit">
+                            <div className="flex items-start sm:items-center justify-between gap-3 w-full">
+                              <code className="font-mono text-xs sm:text-sm text-primary bg-primary/10 border border-primary/20 px-2.5 sm:px-3 py-1.5 rounded-md break-words whitespace-normal min-w-0">
                                 {cmd.command}
                               </code>
-                              <span className="text-xs sm:text-sm text-muted-foreground">
-                                {cmd.description}
-                              </span>
+                              <button
+                                onClick={() => copyCommand(cmd.command)}
+                                className="p-1.5 sm:p-2 rounded-lg bg-primary/10 border border-primary/20 text-primary opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all hover:bg-primary/20 hover:scale-105 flex-shrink-0"
+                                title="Copy command"
+                              >
+                                {copiedCommand === cmd.command ? (
+                                  <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                                ) : (
+                                  <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                                )}
+                              </button>
                             </div>
-                            <button
-                              onClick={() => copyCommand(cmd.command)}
-                              className="p-2 rounded-lg bg-primary/10 border border-primary/20 text-primary sm:opacity-0 sm:group-hover:opacity-100 transition-all hover:bg-primary/20 hover:scale-105 flex-shrink-0 self-start sm:self-center"
-                              title="Copy command"
-                            >
-                              {copiedCommand === cmd.command ? (
-                                <Check className="w-4 h-4" />
-                              ) : (
-                                <Copy className="w-4 h-4" />
-                              )}
-                            </button>
+                            <span className="text-xs sm:text-sm text-muted-foreground mt-0.5">
+                              {cmd.description}
+                            </span>
                           </div>
                         ))}
                       </div>
