@@ -313,9 +313,9 @@ export default function ShopPage() {
                   exit={{ opacity: 0, height: 0 }}
                   className="mt-16 overflow-hidden"
                 >
-                  <div className="text-center mb-8">
-                    <h2 className="text-2xl font-pixel text-white mb-2">Rank Comparison</h2>
-                    <p className="text-sm text-muted-foreground">Compare all features side-by-side.</p>
+                  <div className="text-center mb-8 px-4">
+                    <h2 className="text-xl sm:text-2xl font-pixel text-white mb-2 break-words">Rank Comparison</h2>
+                    <p className="text-xs sm:text-sm text-muted-foreground">Compare all features side-by-side.</p>
                   </div>
                   <ComparisonTable ranks={ranks} />
                 </motion.div>

@@ -105,40 +105,32 @@ export default function CommandsPage() {
             >
               <GlowCard hover={false} className="p-0 overflow-hidden">
                 <button
-                  onClick={() =>
-                    setExpandedPlugin(
-                      expandedPlugin === plugin.id ? null : plugin.id
-                    )
-                  }
-                  className="w-full p-4 sm:p-6 flex items-center justify-between hover:bg-white/5 transition-colors gap-3 rounded-xl"
+                  onClick={() => setExpandedPlugin(expandedPlugin === plugin.id ? null : plugin.id)}
+                  className="w-full flex items-center justify-between p-4 sm:p-6 text-left gap-2 sm:gap-4"
                 >
-                  <div className="flex items-center gap-4 text-left">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
-                      {categories.find((c) => c.id === plugin.category)?.icon && (
-                        <div className="text-primary">
-                          {(() => {
-                            const IconComponent = categories.find(
-                              (c) => c.id === plugin.category
-                            )!.icon;
-                            return <IconComponent className="w-6 h-6" />;
-                          })()}
-                        </div>
-                      )}
+                  <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 text-primary border border-primary/20">
+                      {(() => {
+                        const IconComponent = categories.find(
+                          (c) => c.id === plugin.category
+                        )!.icon;
+                        return <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />;
+                      })()}
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground text-sm sm:text-base">{plugin.name}</h3>
-                      <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2">
+                    <div className="min-w-0">
+                      <h3 className="font-semibold text-foreground text-sm sm:text-base truncate">{plugin.name}</h3>
+                      <p className="text-xs sm:text-sm text-muted-foreground truncate">
                         {plugin.description}
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+                  <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
                     <span className="text-[10px] sm:text-xs text-primary bg-primary/10 px-1.5 sm:px-2 py-1 rounded-md whitespace-nowrap border border-primary/20">
-                      {plugin.commands.length} commands
+                      {plugin.commands.length} cmds
                     </span>
                     <ChevronDown
                       className={cn(
-                        "w-5 h-5 text-muted-foreground transition-transform duration-300",
+                        "w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground transition-transform duration-300",
                         expandedPlugin === plugin.id && "rotate-180"
                       )}
                     />

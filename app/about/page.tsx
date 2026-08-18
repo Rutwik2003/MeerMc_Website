@@ -167,13 +167,13 @@ export default function AboutPage() {
               >
                 {/* Sleek Role Header */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 border-b border-white/5 pb-4">
-                  <div className="flex items-center gap-4">
-                    <div className={cn("p-3 rounded-2xl bg-gradient-to-br shadow-lg", team.color)}>
-                      <team.icon className="w-6 h-6 text-white" />
+                  <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                    <div className={cn("p-2.5 sm:p-3 rounded-2xl bg-gradient-to-br shadow-lg shrink-0", team.color)}>
+                      <team.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
-                    <div>
-                      <h3 className="text-2xl font-pixel text-white">{team.role}</h3>
-                      <p className="text-sm text-muted-foreground mt-1">
+                    <div className="min-w-0">
+                      <h3 className="text-xl sm:text-2xl font-pixel text-white truncate">{team.role}</h3>
+                      <p className="text-xs sm:text-sm text-muted-foreground mt-1 truncate">
                         {team.role === "Administrators" && "The core leadership driving the server forward."}
                         {team.role === "Developers" && "The engineers crafting custom experiences."}
                         {team.role === "Moderators" && "Keeping the community safe and fair."}

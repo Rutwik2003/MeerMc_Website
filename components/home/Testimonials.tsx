@@ -72,11 +72,11 @@ export default function Testimonials() {
           subtitle="Don't just take our word for it. See what our community thinks about the server."
         />
 
-        <div className="relative max-w-4xl mx-auto mt-12 px-12">
+        <div className="relative max-w-4xl mx-auto mt-12 px-2 sm:px-12">
           {/* Main Card */}
-          <div className="glass-card rounded-3xl p-8 lg:p-12 relative overflow-hidden min-h-[300px] border border-primary/20 shadow-[0_0_40px_rgba(168,85,247,0.1)]">
+          <div className="glass-card rounded-3xl p-6 sm:p-8 lg:p-12 relative overflow-hidden min-h-[250px] sm:min-h-[300px] border border-primary/20 shadow-[0_0_40px_rgba(168,85,247,0.1)]">
             {/* Background Accents */}
-            <Quote className="absolute top-6 left-6 w-24 h-24 text-primary/10 -rotate-12 pointer-events-none" />
+            <Quote className="absolute top-4 sm:top-6 left-4 sm:left-6 w-16 h-16 sm:w-24 sm:h-24 text-primary/10 -rotate-12 pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50" />
 
             <div className="relative z-10 flex items-center justify-center h-full">
@@ -96,22 +96,22 @@ export default function Testimonials() {
                   className="w-full flex flex-col items-center text-center"
                 >
                   {/* Rating */}
-                  <div className="flex items-center justify-center gap-1.5 mb-6 bg-black/20 px-4 py-1.5 rounded-full border border-white/5">
+                  <div className="flex items-center justify-center gap-1 sm:gap-1.5 mb-4 sm:mb-6 bg-black/20 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full border border-white/5">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className={cn("w-4 h-4", i < testimonial.rating ? "text-yellow-400 fill-yellow-400 drop-shadow-[0_0_5px_rgba(250,204,21,0.5)]" : "text-gray-600")}
+                        className={cn("w-3 h-3 sm:w-4 sm:h-4", i < testimonial.rating ? "text-yellow-400 fill-yellow-400 drop-shadow-[0_0_5px_rgba(250,204,21,0.5)]" : "text-gray-600")}
                       />
                     ))}
                   </div>
 
                   {/* Content */}
-                  <p className="text-foreground text-xl lg:text-2xl mb-8 leading-relaxed font-medium">
+                  <p className="text-foreground text-base sm:text-xl lg:text-2xl mb-6 sm:mb-8 leading-relaxed font-medium">
                     "{testimonial.content}"
                   </p>
 
                   {/* Author */}
-                  <div className="flex flex-col items-center gap-3">
+                  <div className="flex flex-col items-center gap-2 sm:gap-3">
                     <div className="relative">
                       <div className="absolute inset-0 bg-primary rounded-lg blur-md opacity-50" />
                       <img 

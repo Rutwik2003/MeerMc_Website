@@ -48,7 +48,7 @@ export default function ServerPage() {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-pixel text-gradient tracking-wider mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+            className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-pixel text-gradient tracking-wider mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] break-words px-2"
           >
             Server Information
           </motion.h1>
