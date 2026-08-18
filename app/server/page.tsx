@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/config/env";
-import { Copy, Check, Shield, Sword, Map, Users, ChevronDown } from "lucide-react";
+import { Copy, Check, Shield, Sword, Map, Users, ChevronDown, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function ServerPage() {
@@ -48,7 +48,7 @@ export default function ServerPage() {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl lg:text-5xl font-pixel text-white mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+            className="text-3xl md:text-5xl lg:text-6xl font-pixel text-gradient tracking-wider mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
           >
             Server Information
           </motion.h1>
@@ -146,10 +146,10 @@ export default function ServerPage() {
             </div>
             <div className="bento-card p-6 flex flex-col items-center text-center group">
               <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <Map className="w-6 h-6" />
+                <Sparkles className="w-6 h-6" />
               </div>
-              <h3 className="font-bold text-white mb-2">Custom Biomes</h3>
-              <p className="text-sm text-muted-foreground">Explore breathtaking custom terrain, hidden secrets, and unique structures across the map.</p>
+              <h3 className="font-bold text-white mb-2">Custom Features</h3>
+              <p className="text-sm text-muted-foreground">Unique gameplay elements, items, and mechanics created exclusively for our community.</p>
             </div>
           </div>
         </div>

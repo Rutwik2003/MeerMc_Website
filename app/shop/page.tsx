@@ -65,9 +65,9 @@ export default function ShopPage() {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl lg:text-5xl font-pixel text-white mb-4 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+            className="text-3xl md:text-5xl lg:text-6xl font-pixel text-gradient tracking-wider mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
           >
-            Server Shop
+            Server Store
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
