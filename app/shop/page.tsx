@@ -133,7 +133,7 @@ export default function ShopPage() {
         <div className="grid lg:grid-cols-12 gap-8 max-w-6xl mx-auto">
           
           {/* LEFT SIDE: The Stage (Sticky) */}
-          <div className="lg:col-span-5 order-2 lg:order-1">
+          <div className="lg:col-span-5 order-2 lg:order-1 min-w-0">
             <div className="lg:sticky lg:top-28">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -227,7 +227,7 @@ export default function ShopPage() {
           </div>
 
           {/* RIGHT SIDE: The Catalog (Scrollable List) */}
-          <div className="lg:col-span-7 order-1 lg:order-2">
+          <div className="lg:col-span-7 order-1 lg:order-2 min-w-0">
             <h3 className="font-pixel text-xl text-white mb-6">
               Select a {isRank ? "Rank" : "Crate Key"}
             </h3>

@@ -202,20 +202,20 @@ export default function DonatorsPage() {
           className="max-w-5xl mx-auto mb-16"
         >
           {/* Section Header */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
-            <h2 className="flex items-center gap-2 text-lg font-heading font-bold text-white">
-              <ShoppingBag className="w-5 h-5 text-primary" />
-              ALL PURCHASES & DONATIONS ({allDonators.length})
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
+            <h2 className="flex items-start sm:items-center gap-2 text-base sm:text-lg font-heading font-bold text-white">
+              <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5 text-primary shrink-0 mt-0.5 sm:mt-0" />
+              <span>ALL PURCHASES & DONATIONS ({allDonators.length})</span>
             </h2>
 
-            <div className="relative w-full sm:w-auto">
+            <div className="relative w-full md:w-auto">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
               <input
                 type="text"
                 placeholder="Search player name or item..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full sm:w-72 pl-10 pr-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 text-sm text-white placeholder:text-gray-500 outline-none focus:border-primary/50 transition-colors"
+                className="w-full md:w-72 pl-10 pr-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 text-sm text-white placeholder:text-gray-500 outline-none focus:border-primary/50 transition-colors"
               />
             </div>
           </div>

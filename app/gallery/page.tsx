@@ -112,14 +112,14 @@ export default function GalleryPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a0410] via-black/40 to-transparent" />
                   
-                  <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
-                    <span className="inline-block px-3 py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-xs font-bold mb-3">
+                  <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8 md:p-12">
+                    <span className="inline-block px-2 sm:px-3 py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-[10px] sm:text-xs font-bold mb-2 sm:mb-3">
                       {showcaseItems[featuredIndex].category}
                     </span>
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow-lg font-pixel">
+                    <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-2 drop-shadow-lg font-pixel break-words">
                       {showcaseItems[featuredIndex].title}
                     </h2>
-                    <p className="text-white/80 text-lg max-w-2xl drop-shadow-md">
+                    <p className="text-white/80 text-sm sm:text-lg max-w-2xl drop-shadow-md">
                       {showcaseItems[featuredIndex].description}
                     </p>
                   </div>

@@ -118,8 +118,8 @@ export default function CommandsPage() {
                       })()}
                     </div>
                     <div className="min-w-0">
-                      <h3 className="font-semibold text-foreground text-sm sm:text-base truncate">{plugin.name}</h3>
-                      <p className="text-xs sm:text-sm text-muted-foreground truncate">
+                      <h3 className="font-semibold text-foreground text-sm sm:text-base break-words">{plugin.name}</h3>
+                      <p className="text-xs sm:text-sm text-muted-foreground line-clamp-1 sm:line-clamp-2">
                         {plugin.description}
                       </p>
                     </div>

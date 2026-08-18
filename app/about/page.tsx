@@ -55,9 +55,9 @@ export default function AboutPage() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="max-w-4xl mx-auto mb-20"
         >
-          <GlowCard hover={false} className="p-8 lg:p-12">
-            <h2 className="font-pixel text-lg text-primary mb-6">Our Story</h2>
-            <div className="prose prose-invert max-w-none">
+          <GlowCard hover={false} className="p-5 sm:p-8 lg:p-12">
+            <h2 className="font-pixel text-xl text-primary mb-6 text-center sm:text-left">Our Story</h2>
+            <div className="prose prose-invert max-w-none text-sm sm:text-base">
               <p className="text-foreground leading-relaxed mb-6">
                 MeerMc started with a simple vision: create a Minecraft server where community
                 comes first. Frustrated with pay-to-win servers and toxic environments, our
