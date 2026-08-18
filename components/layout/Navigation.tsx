@@ -17,6 +17,8 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "Server", href: "/server" },
   { name: "Shop", href: "/shop" },
+  { name: "Leaderboard", href: "/leaderboard" },
+  { name: "Donators", href: "/donators" },
   { name: "Gallery", href: "/gallery" },
   { name: "Commands", href: "/commands" },
   { name: "About", href: "/about" },

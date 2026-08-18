@@ -95,3 +95,24 @@ export interface VoteSite {
   description: string;
   rewards: string[];
 }
+
+export interface LeaderboardPlayer {
+  rank: number;
+  username: string;
+  uuid: string;
+  level: number;
+  netWorth: number;
+  kills: number;
+  deaths: number;
+  playtime: number; // in seconds
+}
+
+export interface Donator {
+  rank: number;
+  username: string;
+  uuid: string;
+  tier: string;
+  tierColor: string; // tailwind gradient classes e.g. "from-amber-500 to-yellow-400"
+  purchasedItems: string[];
+  amount: number; // in INR
+}

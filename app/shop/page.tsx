@@ -159,7 +159,7 @@ export default function ShopPage() {
                     >
                       {isRank ? (
                         <Image
-                          src={(currentItem as Rank).image}
+                          src={(currentItem as Rank).image ?? ""}
                           alt={currentItem.name}
                           width={100}
                           height={100}
@@ -246,7 +246,7 @@ export default function ShopPage() {
                 >
                   <div className="w-16 h-16 bg-black/40 rounded-xl flex items-center justify-center shrink-0 border border-white/10">
                     <Image
-                      src={rank.image}
+                      src={rank.image ?? ""}
                       alt={rank.name}
                       width={48}
                       height={48}

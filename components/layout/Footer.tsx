@@ -8,12 +8,17 @@ import { siteConfig } from "@/config/env";
 import { CopyButton } from "@/components/ui/CopyButton";
 
 const footerLinks = {
-  quickLinks: [
+  pages: [
     { name: "Server", href: "/server" },
     { name: "Shop", href: "/shop" },
     { name: "Gallery", href: "/gallery" },
     { name: "Commands", href: "/commands" },
+  ],
+  explore: [
+    { name: "Leaderboard", href: "/leaderboard" },
+    { name: "Donators", href: "/donators" },
     { name: "Vote", href: "/vote" },
+    { name: "About", href: "/about" },
   ],
   legal: [
     { name: "Terms of Service", href: "/tos" },
@@ -30,7 +35,7 @@ export default function Footer() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-purple-900/10 pointer-events-none" />
 
       <div className="container mx-auto px-4 lg:px-8 pt-16 pb-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <motion.div
@@ -78,7 +83,7 @@ export default function Footer() {
             </motion.div>
           </div>
 
-          {/* Quick Links Column */}
+          {/* Pages Column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -86,10 +91,35 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <h3 className="font-pixel text-xs text-primary uppercase mb-4 tracking-wider">
-              Quick Links
+              Pages
             </h3>
             <ul className="space-y-3">
-              {footerLinks.quickLinks.map((link) => (
+              {footerLinks.pages.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-muted-foreground hover:text-white text-sm transition-colors flex items-center gap-2 group"
+                  >
+                    <span className="w-1 h-1 rounded-full bg-primary/50 group-hover:bg-primary transition-colors" />
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Explore Column */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            <h3 className="font-pixel text-xs text-primary uppercase mb-4 tracking-wider">
+              Explore
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks.explore.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
