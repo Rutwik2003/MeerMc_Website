@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { formatPlaytime, formatNetWorth, SortKey } from "@/config/leaderboard";
 import { motion } from "framer-motion";
-import { Trophy, Swords, Clock, DollarSign, Search, Crown, Medal, Users, RefreshCw } from "lucide-react";
+import { Trophy, Swords, Clock, DollarSign, Search, Crown, Medal, Users, RefreshCw, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/env";
 import { useServerStatus } from "@/hooks/useServerStatus";

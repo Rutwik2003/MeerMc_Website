@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Vote, ExternalLink, Gift, Clock, Star, Trophy, ArrowRight, ArrowUpRight } from "lucide-react";
+import { Vote, ExternalLink, Gift, Clock, Star, Trophy, ArrowRight, ArrowUpRight, Sparkles } from "lucide-react";
 import { siteConfig } from "@/config/env";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
