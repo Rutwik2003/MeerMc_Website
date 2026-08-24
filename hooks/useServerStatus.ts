@@ -18,36 +18,21 @@ export function useServerStatus() {
     try {
       setLoading(true);
       
-      const [javaResponse, bedrockResponse] = await Promise.all([
-        fetch(`${siteConfig.api.mcSrvStat}/3/${siteConfig.server.javaIp}:${siteConfig.server.javaPort}`, { signal: abortSignal }),
-        fetch(`${siteConfig.api.mcSrvStat}/bedrock/3/${siteConfig.server.bedrockIp}:${siteConfig.server.bedrockPort}`, { signal: abortSignal })
-      ]);
+      const response = await fetch("/api/players", { signal: abortSignal });
+      const data = await response.json();
 
-      const javaData = await javaResponse.json();
-      const bedrockData = await bedrockResponse.json();
-
-      const javaOnline = javaData.online === true;
-      const bedrockOnline = bedrockData.online === true;
-      
-      // Since it's a crossplay server, Java pings typically include Geyser players.
-      // Adding Bedrock pings on top causes double-counting. Prioritize Java count.
-      const players = javaOnline 
-        ? (javaData.players?.online || 0) 
-        : (bedrockOnline ? (bedrockData.players?.online || 0) : 0);
-        
-      const maxPlayers = javaOnline 
-        ? (javaData.players?.max || 0) 
-        : (bedrockOnline ? (bedrockData.players?.max || 0) : 0);
-        
-      const playerList = javaOnline ? (javaData.players?.list || []) : [];
+      const playerList = data.players || [];
+      const players = playerList.length;
+      const maxPlayers = 50; // Hardcoded fallback or could be added to API
+      const isOnline = !data.error;
 
       setStatus({
-        online: javaOnline || bedrockOnline,
+        online: isOnline,
         players,
         maxPlayers,
         playerList,
-        javaOnline,
-        bedrockOnline,
+        javaOnline: isOnline,
+        bedrockOnline: isOnline,
       });
       setError(null);
     } catch (err) {

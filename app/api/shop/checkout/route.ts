@@ -5,7 +5,7 @@ export async function POST(req: Request) {
     const body = await req.json();
     let { minecraftUsername, itemPurchased, amount, discordAccount, utrNumber, itemId, isCrate, quantity } = body;
 
-    const botToken = process.env.DISCORD_BOT_TOKEN;
+    const botToken = process.env.DISCORD_TOKEN || process.env.DISCORD_BOT_TOKEN;
     const channelId = process.env.DISCORD_ADMIN_CHANNEL_ID;
 
     if (!botToken || !channelId) {
