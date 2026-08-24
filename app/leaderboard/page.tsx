@@ -44,9 +44,9 @@ export default function LeaderboardPage() {
           username: d.username,
           level: Math.floor(d.kills / 10) + 1, // pseudo-level
           kills: d.kills,
-          deaths: d.deaths,
-          netWorth: 0, // Placeholder
-          playtime: 0 // Placeholder
+          deaths: d.deaths || 0,
+          netWorth: d.netWorth || 0,
+          playtime: d.playtime || 0
         }));
         setPlayers(formattedData);
         setLoading(false);
